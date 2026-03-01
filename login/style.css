@@ -7,13 +7,12 @@
 
 body{
     height:100vh;
-    background-color:#F0A84E; /* สีส้มพื้นหลัง */
+    background-color:#F0A84E;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-/* Container L/R */
 .container{
     width:1200px;
     display:flex;
@@ -21,16 +20,8 @@ body{
     align-items:center;
 }
 
-/* logo */
 .left img{
     width:400px;
-}
-
-/* right sec */
-.right{
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
 .login-box{
@@ -59,7 +50,6 @@ body{
     border-radius:2px;
 }
 
-/* input */
 .input-group{
     margin-bottom:25px;
 }
@@ -77,11 +67,10 @@ body{
     border-bottom:3px solid #2f3e4a;
     background:transparent;
     padding:8px 0;
-    font-size:20px;
+    font-size:18px;
     outline:none;
 }
 
-/* login btn */
 .login-btn{
     width:100%;
     padding:15px;
@@ -99,15 +88,13 @@ body{
     opacity:0.85;
 }
 
-/* signup link */
 .signup-text{
     text-align:center;
     margin-top:15px;
-    font-size:20px;
+    font-size:18px;
 }
 
-.signup-text a{
-    color:#243746;
-    font-weight:600;
+/* ขีดเส้นเฉย ๆ */
+.underline{
     text-decoration:underline;
 }

@@ -24,12 +24,6 @@ body{
     width:400px;
 }
 
-.right{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
 .login-box{
     width:400px;
     background:#d9d9d9;
@@ -73,7 +67,7 @@ body{
     border-bottom:3px solid #2f3e4a;
     background:transparent;
     padding:8px 0;
-    font-size:20px;
+    font-size:18px;
     outline:none;
 }
 
@@ -97,11 +91,10 @@ body{
 .signup-text{
     text-align:center;
     margin-top:15px;
-    font-size:20px;
+    font-size:18px;
 }
 
-.signup-text a{
-    color:#243746;
-    font-weight:600;
+/* ขีดเส้นเฉย ๆ */
+.underline{
     text-decoration:underline;
 }
