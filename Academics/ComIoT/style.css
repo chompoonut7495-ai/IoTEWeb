@@ -168,7 +168,7 @@ body {
 .panel-content {
     padding: 30px 20px;
     text-align: center;
-    color: #ffffff;
+    color: #dddcdc;
 }
 
 .panel-content h4 {
@@ -185,110 +185,98 @@ body {
     font-size: 1rem;
 }
 
-/* =========================================
-   Curriculum Section
-   ========================================= */
+/* ================= CURRICULUM SECTION ================= */
 
 .curriculum-section {
-    width: 100%;
-    background-color: #e0e0e0; 
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px; 
+    padding: 100px 8%;
+    background-color: #ffffff;
 }
 
 .curriculum-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* กล่องหัวข้อ */
-.curriculum-tab {
-    background-color: #ffffff;
-    border: 3px solid #1e2b40;
-    border-radius: 12px;
-    padding: 15px 30px 35px 30px;
-    margin-bottom: 20px;
     position: relative;
-    display: inline-block;
-    max-width: 90%;
+    margin-bottom: 120px;
 }
 
-.curriculum-tab h3 {
-    font-size: 1.2rem;
+/* ================= กล่องหัวข้อ ================= */
+
+.curriculum-tab {
+    position: relative;
+    width: 50%;
+    padding: 18px 35px;
     font-weight: 700;
-    line-height: 1.6;
+    font-size: 22px;
+    border: 4px solid #2c3e50;
+    border-radius: 25px;
+    background: #ffffff;
+    z-index: 2; /* ทำให้กล่องหน้าชัด */
 }
 
-/* ลายเส้นปะ */
-.curriculum-tab::after {
-    content: "";
+/* ================= orange bars ================= */
+
+.orange-bars {
     position: absolute;
     bottom: 12px;
-    right: 20px;
-    width: 120px;
-    height: 6px;
-    background: repeating-linear-gradient(
-        to right,
-        #F9A848 0,
-        #F9A848 20px,
-        transparent 20px,
-        transparent 25px
-    );
+    right: 25px;
+    display: flex;
+    gap: 6px;
 }
 
-/* จัดซ้ายขวา */
+.orange-bars span {
+    background: #f39c12;
+    display: block;
+    height: 6px;
+}
+
+.orange-bars span:nth-child(1){ width: 10px; }
+.orange-bars span:nth-child(2){ width: 20px; }
+.orange-bars span:nth-child(3){ width: 30px; }
+.orange-bars span:nth-child(4){ width: 40px; }
+.orange-bars span:nth-child(5){ width: 50px; }
+.orange-bars span:nth-child(6){ width: 60px; }
+
+/* ================= จัดซ้าย / ขวา ================= */
+
 .align-left {
-    align-self: flex-start;
+    margin-right: auto;
 }
 
 .align-right {
-    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
 }
 
-/* เฟรมรูป */
+/* ================= กรอบรูป ================= */
+
 .curriculum-frame {
-    background-image: url('img/stripe.JPG'); 
+    background-image: url('img/stripe.JPG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     width: 100%;
+    height: 600px;
     padding: 50px;
-    border-radius: 12px; 
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .curriculum-img {
     width: 100%;
-    border-radius: 8px; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
-/* =========================================
-   Responsive
-   ========================================= */
-@media screen and (max-width: 768px) {
+/* ================= Responsive ================= */
 
-    .card-body {
-        padding: 15px;
-    }
-
-    .accordion-btn {
-        padding: 15px;
-        font-size: 1rem;
-    }
-
-    .curriculum-section {
-        padding: 50px 15px;
-        gap: 50px;
-    }
+@media(max-width:900px) {
 
     .curriculum-tab {
-        align-self: center;
-        max-width: 100%;
-        padding: 15px 20px 30px 20px;
+        width: 100%;
+        font-size: 18px;
     }
 
-    .curriculum-frame {
-        padding: 20px;
-    }
 }
