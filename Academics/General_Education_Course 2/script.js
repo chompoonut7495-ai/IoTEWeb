@@ -25,18 +25,33 @@ function toggleMenu() {
         menu.classList.add("show");
     }
 }
-function toggleAccordion(button) {
-    // สลับคลาส 'active' ที่ปุ่มเพื่อหมุนลูกศร
-    button.classList.toggle("active");
 
-    // หา div ที่เป็น panel เนื้อหาซึ่งอยู่ติดกับปุ่ม
-    var panel = button.nextElementSibling;
 
-    // เช็คว่าเปิดอยู่หรือเปล่า ถ้าเปิดให้ปิด ถ้าปิดให้เปิด (สไลด์ลง)
-    if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-    } else {
-        // ให้ความสูงกางออกจนสุดเนื้อหา
-        panel.style.maxHeight = panel.scrollHeight + "px";
-    }
+let commentCount = 2;
+
+function addComment(){
+    const input = document.getElementById("commentInput");
+    const text = input.value.trim();
+
+    if(text === "") return;
+
+    const commentList = document.getElementById("commentList");
+
+    const newComment = document.createElement("div");
+    newComment.className = "comment";
+
+    newComment.innerHTML = `
+        <div class="avatar"></div>
+        <div class="comment-content">
+            <div class="comment-header">
+                <span class="name">Anonymous 00${commentCount}</span>
+                <span class="time">Just now</span>
+            </div>
+            <p>${text}</p>
+        </div>
+    `;
+
+    commentList.appendChild(newComment);
+    input.value = "";
+    commentCount++;
 }

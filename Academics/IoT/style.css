@@ -1,4 +1,4 @@
-/* รีเซ็ตค่าเริ่มต้น */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,194 +6,286 @@
 }
 
 body {
-    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
-    background-color: #333; /* พื้นหลังสมมติเพื่อให้เห็น Header ชัดๆ */
+    margin-top: 90px;
+    font-family: 'Pathway Extreme', sans-serif;
+    background: #f4f6f9;
+    overflow-x: hidden;
 }
 
-/* --- Container ของ Header --- */
-.navbar {
+/* ================= HEADER ================= */
+.header {
+    background: linear-gradient(135deg, #233847, #2c4a63);
+    padding: 70px 0;
+    text-align: center;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* ================= MAIN SECTION ================= */
+.main-section {
+    padding: 80px 8%;
+}
+
+.card-wrapper {
+    display: flex;
+    gap: 50px;
+}
+
+/* ================= CARD ================= */
+.card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* ================= CARD HEADER ================= */
+.card-header {
+    background: #eda74a;
+    padding: 40px 30px;
+    position: relative;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.dots {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+
+/* ================= CARD CONTENT ================= */
+.card-content {
+    padding: 35px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #444;
+}
+
+.content-image {
+    width: 100%;
+    border-radius: 14px;
+    margin-top: 25px;
+}
+
+/* ================= ACCORDION BUTTON ================= */
+.toggle-btn {
+    background: #1e2b40;
+    color: #fff;
+    margin: 30px;
+    padding: 18px 25px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F9A848;
-    padding: 10px 40px;
-    height: 80px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-    /* --- ส่วนที่เพิ่มเข้ามา --- */
-    position: fixed; /* ให้ลอยอยู่กับที่ */
-    top: 0; 
-    width: 100%;
-    z-index: 1000; /* ให้อยู่บนสุดเสมอ */
-    transition: top 0.3s ease-in-out; /* เอฟเฟกต์เลื่อนขึ้นลงนุ่มๆ */
-}
-
-/* --- จัดการ Logo --- */
-.logo img {
-    height: 50px; /* กำหนดความสูงโลโก้ */
-    object-fit: contain;
-}
-
-/* --- จัดการรายการเมนู --- */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2px;  /* <-- ของใหม่: ลด gap ลงเพื่อให้ปุ่มชิดกันมากขึ้น แล้วใช้ padding แทน */
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.5s ease; 
-
-    /* --- ส่วนที่เพิ่มขึ้นมาเพื่อขยายพื้นที่ --- */
-    display: block; /* ทำให้ลิงก์มีคุณสมบัติเป็นกล่อง เพื่อให้ padding ทำงานสมบูรณ์ */
-    padding: 20px 10px; /* เพิ่มพื้นที่ บนล่าง 10px, ซ้ายขวา 20px */
-    border-radius: 8px; /* เพิ่มความมนที่มุมเล็กน้อย (เผื่อใส่สีพื้นหลังตอน hover) */
-}
-
-/* --- เอฟเฟกต์ตอนเอาเมาส์ชี้ (Hover) และสถานะ Active --- */
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #fff;
-    background-color: rgba(255, 123, 0, 0.658);
-}
-
-/* --- ลูกศร Dropdown --- */
-.arrow {
-    font-size: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-/* --- การจัดการ Dropdown --- */
-
-/* 1. กำหนดให้เมนูหลักเป็นจุดอ้างอิง */
-.dropdown {
-    position: relative;
-}
-
-/* 2. ดีไซน์กล่องเมนูย่อย (ปกติจะซ่อนอยู่) */
-.dropdown-menu {
-    display: none; /* ซ่อนไว้ก่อน */
-    position: absolute; /* ลอยอิสระเทียบกับปุ่มแม่ */
-    top: 120%; /* อยู่ใต้ปุ่มแม่พอดี */
-    left: 0;
-    background-color: #fff; /* พื้นหลังสีขาว */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* เงาให้ดูมีมิติ */
-    min-width: 250px; /* ความกว้างขั้นต่ำ (ปรับได้ถ้าข้อความยาว) */
-    list-style: none;
-    padding: 10px 0; /* ระยะห่างบนล่างภายในกล่อง */
-    border-radius: 10px;
-    z-index: 1000; /* ให้ลอยอยู่เหนือเลเยอร์อื่นๆ */
-}
-
-/* 3. สั่งให้แสดงเมื่อเอาเมาส์ชี้ที่ .dropdown (Hover) */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* 4. ตกแต่งลิ้งค์ข้างใน Dropdown */
-.dropdown-menu li a {
-    color: #333; /* สีตัวอักษรเข้ม */
-    padding: 10px 20px; /* ระยะห่างให้น่ากด */
-    display: block;
-    font-size: 14px; /* ขนาดตัวอักษรเล็กลงหน่อยเพื่อความสวยงาม */
-    font-weight: 400; /* ตัวธรรมดา ไม่หนา */
-    white-space: nowrap; /* ห้ามตัดบรรทัด (ถ้าข้อความยาวเกินให้ขยายกล่องเอา) */
-}
-
-/* 5. เปลี่ยนสีพื้นหลังเมื่อชี้ลิ้งค์ย่อย */
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1; /* สีเทาอ่อนๆ */
-    color: #F9A848; /* ตัวหนังสือเปลี่ยนเป็นสีส้มธีมหลัก */
-}
-/* --- สร้างสะพานล่องหนเชื่อมปุ่มกับเมนู --- */
-.dropdown-menu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    /* ความกว้างเท่ากับตัวเมนู */
-    width: 100%;
-    /* ความสูงของสะพาน (ปรับให้พอดีกับช่องว่างที่มันห่าง) */
-    height: 20px; 
-    /* ดันสะพานขึ้นไปข้างบน เพื่อให้อยู่ระหว่างปุ่มกับเมนู */
-    top: -20px; 
-    left: 0;
-    /* สีพื้นหลัง (ใส่สีแดงไว้เทสก่อน พอใช้จริงค่อยลบออกหรือเปลี่ยนเป็น transparent) */
-    /* background-color: red; */ 
-    background-color: transparent; 
-}
-/* --- แก้ไขเฉพาะ Dropdown ที่ชิดขวา (Performance) --- */
-.dropdown-right .dropdown-menu {
-    left: auto;  /* ยกเลิกการยึดขอบซ้าย */
-    right: 0;    /* สั่งให้ยึดขอบขวาแทน */
-}
-/* =========================================
-   ส่วนที่เพิ่มใหม่: Hamburger & Mobile View
-   ========================================= */
-
-/* ดีไซน์ปุ่ม Hamburger (ปกติซ่อนไว้) */
-.menu-icon {
-    display: none;
-    flex-direction: column;
     cursor: pointer;
-    gap: 5px;
-}
-.menu-icon span {
-    width: 25px; height: 3px; background-color: #000;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-/* --- Responsive Layout (สำหรับจอมือถือ) --- */
-@media screen and (max-width: 950px) {
-    .navbar { padding: 10px 40px; }
+/* ตอน active ให้ปุ่มแบนล่าง */
+.card.active .toggle-btn {
+    border-radius: 20px 20px 0 0;
+}
 
-    /* แสดงปุ่ม Burger */
-    .menu-icon { display: flex; }
+.toggle-btn:hover {
+    background: #2d4663;
+}
 
-    /* ซ่อนเมนูหลักไว้ก่อน */
-    #menu-container {
-        display: none; /* ซ่อน */
-        position: absolute;
-        top: 80px; 
-        left: 0; 
-        width: 100%;
-        background-color: #F9A848; /* ใช้สีเดียวกับ Header */
-        padding-bottom: 20px;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-    }
+.left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-    /* คลาสนี้จะถูก JS เติมเข้ามาตอนกดปุ่ม */
-    #menu-container.show { display: block; }
+.btn-icon {
+    width: 30px;
+}
 
-    /* จัดเรียงเมนูเป็นแนวตั้ง */
-    .nav-links {
+.course-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.course-link:hover {
+    opacity: 0.8;
+}
+
+/* ลูกศร */
+.arrow-circle {
+    width: 45px;
+    height: 45px;
+    background: #f5a623;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(245, 166, 35, 0.6);
+}
+
+.card.active .arrow-circle {
+    transform: rotate(180deg);
+}
+
+/* ================= ACCORDION PANEL ================= */
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #1e2b40;
+    transition: max-height 0.5s ease;
+
+    /* เอา margin บนออก */
+    margin: 0 30px 30px 30px;
+    margin-top: -30px;   /* ดึงขึ้นให้ชนปุ่ม */
+    
+    border-radius: 0 0 20px 20px;
+}
+
+/* เส้นส้มด้านบน */
+.gold-line {
+    height: 3px;
+    background: #f5a623;
+}
+
+/* เนื้อหาด้านใน */
+.fee-box {
+    padding: 45px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.fee-box h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.price {
+    font-size: 44px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.fee-box p {
+    font-size: 18px;
+}
+
+/* ================= PROGRAM SECTION ================= */
+.program-section {
+    padding: 100px 8%;
+}
+
+.program-wrapper {
+    margin-bottom: 120px;
+}
+
+.program-header {
+    position: relative;
+    width: 50%;
+    padding: 18px 35px;
+    font-weight: 700;
+    font-size: 22px;
+    border: 4px solid #2c3e50;
+    border-radius: 25px;
+    background: #fff;
+}
+
+.program-header::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 6px;
+    right: -10px;
+    bottom: 6px;
+    border: 3px solid #2c3e50;
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.orange-bars {
+    position: absolute;
+    bottom: 12px;
+    right: 25px;
+    display: flex;
+    gap: 6px;
+}
+
+.orange-bars span {
+    background: #f39c12;
+    display: block;
+    height: 6px;
+}
+
+.orange-bars span:nth-child(1){ width: 10px; }
+.orange-bars span:nth-child(2){ width: 20px; }
+.orange-bars span:nth-child(3){ width: 30px; }
+.orange-bars span:nth-child(4){ width: 40px; }
+.orange-bars span:nth-child(5){ width: 50px; }
+.orange-bars span:nth-child(6){ width: 60px; }
+
+.image-container {
+    position: relative;
+    margin-top: 40px;
+}
+
+.main-img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.overlay-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.bottom-box .program-header {
+    margin-left: auto;   /* ดันกรอบไปขวา */
+    text-align: right;   /* ให้ข้อความชิดขวา */
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px) {
+
+    .card-wrapper {
         flex-direction: column;
-        gap: 0; /* รีเซ็ต gap เดิม */
     }
 
-    .nav-links li {
+    .program-header {
         width: 100%;
-        text-align: center;
+        font-size: 18px;
     }
 
-    /* ปรับแต่ง Dropdown ในมือถือ */
-    .dropdown-menu {
-        position: static; /* ไม่ให้ลอยแล้ว ให้แทรกเนื้อหาลงมาเลย */
-        width: 100%;
-        box-shadow: none;
-        background-color: #ffb865; /* สีพื้นหลัง Dropdown ให้เข้มขึ้นนิดนึงจะได้แยกออก */
-        display: none; /* ซ่อนไว้ก่อน */
-        padding: 0;
-    }
-    
-    /* ในมือถือ ให้แสดง Dropdown เมื่อ Hover (หรือจะเปลี่ยนเป็น Click ก็ได้) */
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-    
-    /* ซ่อนสะพานล่องหนในมือถือเพราะไม่จำเป็น */
-    .dropdown-menu::before { display: none; }
 }

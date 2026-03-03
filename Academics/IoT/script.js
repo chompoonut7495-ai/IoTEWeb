@@ -2,12 +2,12 @@
 let lastScrollTop = 0;
 const navbar = document.getElementById("main-nav");
 
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (scrollTop > lastScrollTop) {
         // ถ้าเลื่อนลง -> ซ่อน Navbar (ดึงขึ้นไป -80px)
-        navbar.style.top = "-80px"; 
+        navbar.style.top = "-80px";
     } else {
         // ถ้าเลื่อนขึ้น -> แสดง Navbar (กลับมาที่ 0)
         navbar.style.top = "0";
@@ -24,4 +24,33 @@ function toggleMenu() {
     } else {
         menu.classList.add("show");
     }
-}
+} 
+
+const buttons = document.querySelectorAll(".arrow-circle");
+
+buttons.forEach(button => {
+    button.addEventListener("click", function () {
+
+        const currentCard = this.closest(".card");
+        const currentContent = currentCard.querySelector(".toggle-content");
+
+        // ปิดการ์ดอื่นก่อน
+        document.querySelectorAll(".card").forEach(card => {
+            if (card !== currentCard) {
+                card.classList.remove("active");
+                const content = card.querySelector(".toggle-content");
+                content.style.maxHeight = null;
+            }
+        });
+
+        // toggle อันที่กด
+        if (currentCard.classList.contains("active")) {
+            currentCard.classList.remove("active");
+            currentContent.style.maxHeight = null;
+        } else {
+            currentCard.classList.add("active");
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        }
+
+    });
+});
