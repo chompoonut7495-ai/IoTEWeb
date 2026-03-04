@@ -123,8 +123,8 @@ body {
     gap: 12px;
 }
 
-.btn-icon {
-    width: 30px;
+.fa-regular.fa-file{
+    color:white;
 }
 
 .course-link {
