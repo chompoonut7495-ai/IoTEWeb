@@ -23,34 +23,6 @@ main {
     margin: 0 auto;
     padding: 0 20px;
 }
-.nav-bar{
-    background:#223645;
-    padding:25px 0;
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-bottom: 20px;
-}
-
-.nav-btn{
-    background:#c3914b;
-    color:#fff;
-    border:none;
-    padding:18px 150px;
-    font-size:18px;
-    border-radius:20px;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 6px 15px rgba(0,0,0,0.2);
-}
-
-.nav-btn.active{
-    background:#f2a84c;
-}
-
-.nav-btn:hover{
-    transform:translateY(-3px);
-}
 
 /* --- Container ของ Header --- */
 .navbar {
@@ -301,7 +273,7 @@ body{
 .card{
     background:#fff;
     border-radius:20px;
-    border: 100px;
+    border: 100px;px solid #000000;
     padding:20px;
     text-align:center;
     text-decoration:none;

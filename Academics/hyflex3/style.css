@@ -18,35 +18,6 @@ main {
     padding-top: 80px; /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
 }
 
-.nav-bar{
-    background:#223645;
-    padding:25px 0;
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-bottom: 20px;
-}
-
-.nav-btn{
-    background:#c3914b;
-    color:#fff;
-    border:none;
-    padding:18px 150px;
-    font-size:18px;
-    border-radius:20px;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 6px 15px rgba(0,0,0,0.2);
-}
-
-.nav-btn.active{
-    background:#f2a84c;
-}
-
-.nav-btn:hover{
-    transform:translateY(-3px);
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -264,7 +235,7 @@ body{
     border-radius:20px;
     overflow:hidden;
 
-    border:3px solid #F9B151;   
+    border:3px solid #000;   
 
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
@@ -302,7 +273,7 @@ body{
 .card{
     background:#fff;
     border-radius:20px;
-    border: 100px;
+    border: 100px;px solid #000000;
     padding:20px;
     text-align:center;
     text-decoration:none;
@@ -331,6 +302,7 @@ body{
     transform:translateY(-8px);
     box-shadow:0 15px 30px rgba(0,0,0,0.15);
 }
+
 
 
 /* Detail page */
@@ -471,11 +443,6 @@ body{
     cursor:pointer;
     transition:0.3s;
 }
-
-.comment-input-box button:hover{
-    background:#0f1f2c;
-}
-
 
 /* footer */
 footer {
