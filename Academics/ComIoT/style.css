@@ -50,7 +50,7 @@ body {
 
 /* หัวการ์ด */
 .card-top-bar {
-    background-color: #f9a848;
+    background-color: #F9B151;
     padding: 20px;
     text-align: center;
     position: relative;
@@ -77,7 +77,7 @@ body {
 }
 
 .dot.red { background-color: #ff5f56; }
-.dot.yellow { background-color: #ffbd2e; }
+.dot.yellow { background-color: #F9B151; }
 
 /* เนื้อหา */
 .card-body {
@@ -104,7 +104,7 @@ body {
 
 /* ปุ่ม */
 .accordion-btn {
-    background: #1e2b40;
+    background: #213443;
     color: #ffffff;
     padding: 15px 25px;
     border-radius: 12px;
@@ -135,7 +135,7 @@ body {
 .arrow-circle {
     width: 38px;
     height: 38px;
-    background: #f9a848;
+    background: #F9B151;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -153,7 +153,7 @@ body {
 .accordion-panel {
     max-height: 0;
     overflow: hidden;
-    background: #1e2b40;
+    background: #213443;
     transition: max-height 0.5s ease;
     border-radius: 0 0 12px 12px;
 }
@@ -161,7 +161,7 @@ body {
 /* เส้นส้ม */
 .gold-line {
     height: 2px;
-    background: #f9a848;
+    background: #F9B151;
 }
 
 /* เนื้อหาใน panel */
@@ -205,7 +205,7 @@ body {
     padding: 18px 35px;
     font-weight: 700;
     font-size: 22px;
-    border: 4px solid #2c3e50;
+    border: 4px solid #213443;
     border-radius: 25px;
     background: #ffffff;
     z-index: 2; /* ทำให้กล่องหน้าชัด */
@@ -222,7 +222,7 @@ body {
 }
 
 .orange-bars span {
-    background: #f39c12;
+    background: #F9B151;
     display: block;
     height: 6px;
 }
