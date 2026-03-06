@@ -1,0 +1,188 @@
+<!--  Comment Section เพิ่มก้อนนี้ ไว้บนสุด -->
+<?php
+session_start();
+require_once "config.php";
+
+$course_id = 1;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['email'])) {
+
+    $comment = $_POST['comment'];
+    $user_email = $_SESSION['email'];
+
+    $stmt = $conn->prepare("INSERT INTO comments (course_id, user_email, comment) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $course_id, $user_email, $comment);
+    $stmt->execute();
+
+    header("Location: bemybev.php"); // รีเฟรชหน้า
+    exit();
+}
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BE MY BEV.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.c.css">
+</head>
+
+<body>
+
+<div class="page-header">
+    <a href="index.php" class="back-btn">⤴</a>
+    <h1>BE MY BEV.เรื่องเหล้า</h1>
+</div>
+
+<div class="detail-container">
+    <div class="detail-card">
+        <div class="detail-title">
+            รายละเอียด
+        </div>
+
+        <div class="detail-content">
+            <p><b>BE MY BEV.</b></p>
+            <p>หมวดวิชา - กลุ่มทักษะด้านภาษาและการสื่อสาร</p>
+            <p>เกรดที่ได้รับ – A,B,C,D,F</p>
+            <p>หน่วยกิต – 3 หน่วยกิต</p>
+            <br>
+            <p><b>รีวิวจากผู้เรียน :</b> สนุกจ้า ได้ความรู้เรื่องวัฒนธรรมเครื่องดื่ม</p>
+        </div>
+    </div>
+
+    <!--  Comment Section  
+
+<div class="comment-section">
+
+    <div class="comment-section">
+
+    <div class="comment-list" id="commentList">
+
+       
+        <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <span class="name">Anonymous 001</span>
+                    <span class="time">8 min ago</span>
+                </div>
+                <p>เรียนสนุกลุกนั่งสบาย อาจารย์ใจดี</p>
+            </div>
+        </div>
+
+       
+        <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <span class="name">Anonymous 002</span>
+                    <span class="time">8 min ago</span>
+                </div>
+                <p>เรียนสนุกลุกนั่งสบาย อาจารย์ใจดี</p>
+            </div>
+        </div>
+
+      
+        <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <span class="name">Anonymous 003</span>
+                    <span class="time">8 min ago</span>
+                </div>
+                <p>คะแนนฟรีจัดๆ</p>
+            </div>
+        </div>
+
+        
+        <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <span class="name">Anonymous 004</span>
+                    <span class="time">8 min ago</span>
+                </div>
+                <p>หนีไป...</p>
+            </div>
+        </div>
+
+    </div>
+
+</div> -->
+
+
+<!--  Comment Section เปลี่ยนก้อนนี้ทั้งก้อน-->
+    <section class="comment-section">
+
+    <h2>Comments</h2>
+
+    <div class="comment-list">
+
+        <?php
+        $result = $conn->query("SELECT * FROM comments 
+                                WHERE course_id = $course_id 
+                                ORDER BY created_at DESC");
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+
+            <div class="comment">
+                <div class="avatar"></div>
+
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <?php echo htmlspecialchars($row['user_email']); ?>
+                        <span class="time">
+                            <?php echo $row['created_at']; ?>
+                        </span>
+                    </div>
+
+                    <div class="comment-text">
+                        <?php echo htmlspecialchars($row['comment']); ?>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+            }
+        } else {
+            echo "<p>No comment yet</p>";
+        }
+        ?>
+
+    </div>
+-->
+
+
+
+    <?php if(isset($_SESSION['email'])): ?>
+
+        <form method="POST" class="comment-input-box">
+            <input type="text" name="comment" placeholder="Review something..." required />
+            <button type="submit">➤</button>
+        </form>
+
+    <?php else: ?>
+
+        <div class="comment-input-box">
+            <input type="text" placeholder="Login to comment..." disabled />
+            <button disabled>➤</button>
+        </div>
+
+    <?php endif; ?>
+
+</section>
+
+</div>
+</div>
+
+
+</body>
+</html>
