@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll(".nav-btn");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    });
+});
 // 1. Logic สำหรับการ Scroll (Smart Navbar)
 let lastScrollTop = 0;
 const navbar = document.getElementById("main-nav");
